@@ -2746,7 +2746,7 @@ def circvar(samples, high=2*pi, low=0, axis=None):
     samples, ang = _circfuncs_common(samples, high, low)
     S = sin(ang).mean(axis=axis)
     C = cos(ang).mean(axis=axis)
-    R = hypot(S, C)
+    R = sqrt(S**2 + C**2)
     return ((high - low)/2.0/pi)**2 * 2 * log(1/R)
 
 
